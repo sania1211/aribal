@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | SANIÉ ATELIER</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #49372b;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(250, 245, 236, 0.08),
+            rgba(250, 245, 236, 0.08)
+        ),
+        url("background.jpg") center center / cover fixed;
+
+    background-repeat: no-repeat;
+}
+
+        /* NAVIGATION */
+        nav {
+            width: 100%;
+            padding: 20px 10px;
+            background: rgba(250, 245, 236, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #49372b;
+            text-decoration: none;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: #a47750;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        /* PAGE TITLE */
+        .page-title {
+            text-align: center;
+            margin: 25px 10px 10px;
+        }
+
+        .page-title h1 {
+            font-size: 43px;
+            font-weight: 500;
+            letter-spacing: 5px;
+        }
+
+        .page-title p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 25px;
+            margin-top: 4px;
+        }
+
+        /* PRODUCT DISPLAY */
+        .product-area {
+            min-height: 72vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px 35px;
+        }
+
+        .product-slider {
+            width: 100%;
+            max-width: 850px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .arrow {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border: 1px solid #8c6b50;
+            border-radius: 50%;
+            background: rgba(250, 245, 236, 0.9);
+            color: #49372b;
+            font-size: 32px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .arrow:hover {
+            background: #8c6b50;
+            color: white;
+        }
+
+        .product-card {
+            width: 100%;
+            max-width: 450px;
+            padding: 18px;
+            text-align: center;
+            background: rgba(250, 245, 236, 0.88);
+            border: 1px solid rgba(140, 107, 80, 0.35);
+            box-shadow: 0 8px 25px rgba(60, 40, 25, 0.12);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: contain;
+			object-position: center;
+            display: block;
+            background: #eee3d5;
+        }
+
+        .product-number {
+            margin-top: 15px;
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: #8c6b50;
+        }
+
+        .product-card h2 {
+            margin-top: 5px;
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .product-card .price {
+            margin-top: 5px;
+            font-size: 23px;
+            color: #8c6b50;
+        }
+
+        .tagline {
+            margin-top: 8px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 21px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 600px) {
+            nav {
+                gap: 12px 20px;
+                padding: 15px 8px;
+            }
+
+            nav a {
+                font-size: 18px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+                letter-spacing: 3px;
+            }
+
+            .page-title p {
+                font-size: 22px;
+            }
+
+            .product-slider {
+                gap: 8px;
+            }
+
+            .arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 25px;
+            }
+
+            .product-card {
+                padding: 10px;
+            }
+
+            .product-card img {
+                height: 300px;
+            }
+
+            .product-card h2 {
+                font-size: 25px;
+            }
+
+            .product-card .price {
+                font-size: 21px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .product-card img {
+                height: 240px;
+            }
+
+            .arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 22px;
+            }
+        }
+		
+		/* DRESS COLLECTION */
+.dress-collection {
+    padding: 45px 40px 60px;
+    background: rgba(250, 245, 236, 0.88);
+    margin: 20px auto;
+    max-width: 1250px;
+}
+
+.dress-collection > h2 {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
+
+.collection-subtitle {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    margin: 8px 0 30px;
+}
+
+.dress-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.dress-item {
+    text-align: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(140, 107, 80, 0.25);
+    transition: 0.3s;
+}
+
+.dress-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(60, 40, 25, 0.12);
+}
+
+.dress-item img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    background: #eee3d5;
+}
+
+.dress-item h3 {
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.dress-item p {
+    color: #8c6b50;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+@media (max-width: 800px) {
+    .dress-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 15px;
+    }
+
+    .dress-collection {
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .dress-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    /* OUR COLLECTION TITLE BACKGROUND */
+header.page-title {
+    background: rgba(250, 242, 230, 0.96);
+    background-image: none;
+
+    width: 90%;
+    max-width: 850px;
+    margin: 15px auto 25px;
+    padding: 10px 15px;
+
+    text-align: center;
+    border: 1px solid #D8C2A8;
+    box-shadow: 0 4px 12px rgba(73, 55, 43, 0.12);
+}
+
+header.page-title h1 {
+    color: #49372B;
+}
+
+header.page-title p {
+    color: #8C6B50;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 3px;
+}
+
+@media (max-width: 600px) {
+    header.page-title {
+        width: 94%;
+        padding: 10px;
+    }
+
+    header.page-title h1 {
+        font-size: 29px;
+        letter-spacing: 3px;
+    }
+}
+/* DARK LUXURY NAVIGATION */
+nav {
+    background: rgba(65, 43, 31, 0.97);
+    padding: 20px 10px;
+    box-shadow: 0 4px 12px rgba(45, 28, 18, 0.18);
+}
+
+nav a {
+    color: #f8efe3;
+    text-decoration: none;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #d8b78a;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+
+/* ELEGANT CATEGORY TITLE */
+.category-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 6px;
+    color: #49372B;
+
+    margin: 35px auto 25px;
+    padding: 12px 0;
+}
+
+/* GOLD DECORATIVE LINES */
+.category-title::before,
+.category-title::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 1px;
+    background: #B8955A;
+}
+
+/* SMALL GOLD DIAMOND */
+.category-title::before {
+    box-shadow: -8px 0 0 -0.2px #B8955A;
+}
+
+/* HOVER EFFECT */
+.category-title {
+    transition: 0.3s ease;
+}
+
+.category-title:hover {
+    color: #8C6B50;
+    letter-spacing: 8px;
+}
+
+/* MOBILE DESIGN */
+@media (max-width: 700px) {
+    .category-title {
+        font-size: 25px;
+        letter-spacing: 4px;
+        gap: 10px;
+    }
+
+    .category-title::before,
+    .category-title::after {
+        width: 35px;
+    }
+
+    .category-title:hover {
+        letter-spacing: 4px;
+    }
+}
+
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 6px 10px;
+    background: rgba(65, 43, 31, 0.97);
+    color: #f8efe3;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+footer p {
+    margin: 2px 0;
+}
+
+footer p + p {
+    margin-top: 2px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 16px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    nav {
+        gap: 15px 22px;
+        padding: 15px 10px;
+    }
+
+    nav a {
+        font-size: 18px;
+    }
+
+    .page-title h1 {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    .page-title p {
+        font-size: 22px;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        margin: 20px 12px;
+        padding: 22px;
+        gap: 30px;
+    }
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="product.html" class="active">Product</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <header class="page-title">
+        <h1>OUR COLLECTION</h1>
+        <p>Elegance, Tailored with Grace.</p>
+    </header>
+
+    <main class="product-area">
+        <div class="product-slider">
+
+            <button class="arrow" onclick="changeProduct(-1)"
+                    aria-label="Previous product">&#10094;</button>
+
+            <section class="product-card">
+                <img id="productImage" src="im1.jpg"
+                     alt="Elegant clothing product">
+
+                <p class="product-number" id="productNumber">01 / 16</p>
+                <h2 id="productName">Elegant Blush Pink Ruffle Dress</h2>
+                <p class="price" id="productPrice">850.00</p>
+                <p class="tagline">SANI&#201 ATELIER</p>
+            </section>
+
+            <button class="arrow" onclick="changeProduct(1)"
+                    aria-label="Next product">&#10095;</button>
+
+        </div>
+    </main> 
+	
+
+    <script>
+        const products = [
+            {
+                name: "Elegant Blush Pink Ruffle Dress",
+                price: "850.00",
+                image: "im1.jpg"
+            },
+            {
+                name: "Classic Hepburn Tuck Silky Skirt",
+                price: "450.00",
+                image: "im2.jpg"
+            },
+            {
+                name: "Graceful Blouse",
+                price: "380.00",
+                image: "im3.jpg"
+            },
+            {
+                name: "Chic Outerwear",
+                price: "650.00",
+                image: "im4.jpg"
+            },
+            {
+                name: "Floral Dress",
+                price: "750.00",
+                image: "im5.jpg"
+            },
+            {
+                name: "Modest Skirt",
+                price: "480.00",
+                image: "im6.jpg"
+            },
+            {
+                name: "Everyday Blouse",
+                price: "350.00",
+                image: "im7.jpg"
+            },
+            {
+                name: "Elegant Outerwear",
+                price: "700.00",
+                image: "im8.jpg"
+            },
+            {
+                name: "Timeless Dress",
+                price: "900.00",
+                image: "im9.jpg"
+            },
+            {
+                name: "Classic Blouse",
+                price: "420.00",
+                image: "im10.jpg"
+            },
+            {
+                name: "Champagne Satin Dress",
+                price: "880.00",
+                image: "im11.jpg"
+            },
+            {
+                name: "Ivory Puff-Sleeve Blouse",
+                price: "390.00",
+                image: "im12.jpg"
+            },
+            {
+                name: "Beige Pleated Skirt",
+                price: "520.00",
+                image: "im13.jpg"
+            },
+            {
+                name: "Mocha Satin Skirt",
+                price: "560.00",
+                image: "im14.jpg"
+            },
+            {
+                name: "Classic Cream Blazer",
+                price: "950.00",
+                image: "im15.jpg"
+            },
+            {
+    name: "Camel Knit Cardigan",
+    price: "780.00",
+    image: "im16.jpg"
+}
+];
+
+let currentProduct = 0;
+
+function showProduct() {
+    const product = products[currentProduct];
+
+    document.getElementById("productImage").src = product.image;
+    document.getElementById("productImage").alt = product.name;
+    document.getElementById("productName").textContent = product.name;
+    document.getElementById("productPrice").textContent = product.price;
+
+    document.getElementById("productNumber").textContent =
+        String(currentProduct + 1).padStart(2, "0") + " / " +
+        String(products.length).padStart(2, "0");
+}
+
+function changeProduct(direction) {
+    currentProduct =
+        (currentProduct + direction + products.length) % products.length;
+
+    showProduct();
+}
+
+/* Display the first product */
+showProduct();
+
+</script>
+	
+	<section class="dress-collection">
+    <h2>OUR COLLECTION</h2>
+    <p class="collection-subtitle">
+        Find Your Perfect Style
+    </p>
+
+    <!-- DRESS CATEGORY -->
+    <div class="category-section">
+        <h3 class="category-title">DRESS</h3>
+
+        <div class="dress-grid">
+            <div class="dress-item">
+                <img src="im1.jpg" alt="Pink Ruffle Dress">
+                <h3>Pink Ruffle Dress</h3>
+                <p>850.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im5.jpg" alt="Floral Dress">
+                <h3>Floral Dress</h3>
+                <p>750.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im9.jpg" alt="Timeless Dress">
+                <h3>Timeless Dress</h3>
+                <p>900.00</p>
+            </div>
+			
+			<div class="dress-item">
+                <img src="im11.jpg" alt="Champagne Satin Dress">
+                <h3>Champagne Satin Dress</h3>
+                <p>880.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BLOUSE CATEGORY -->
+    <div class="category-section">
+        <h3 class="category-title">BLOUSE</h3>
+
+        <div class="dress-grid">
+            <div class="dress-item">
+                <img src="im3.jpg" alt="Graceful Blouse">
+                <h3>Graceful Blouse</h3>
+                <p>380.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im7.jpg" alt="Everyday Blouse">
+                <h3>Everyday Blouse</h3>
+                <p>350.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im10.jpg" alt="Classic Blouse">
+                <h3>Classic Blouse</h3>
+                <p>420.00</p>
+            </div>
+			
+			 <div class="dress-item">
+                <img src="im12.jpg" alt="Ivory Puff-Sleeve Blouse">
+                <h3>Ivory Puff-Sleeve Blouse</h3>
+                <p>390.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SKIRT CATEGORY -->
+    <div class="category-section">
+        <h3 class="category-title">SKIRT</h3>
+
+        <div class="dress-grid">
+            <div class="dress-item">
+                <img src="im2.jpg" alt="Classic Silky Skirt">
+                <h3>Classic Silky Skirt</h3>
+                <p>450.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im6.jpg" alt="Modest Skirt">
+                <h3>Modest Skirt</h3>
+                <p>480.00</p>
+            </div>
+			
+			<div class="dress-item">
+                <img src="im13.jpg" alt="Beige Pleated Skirt">
+                <h3>Beige Pleated Skirt</h3>
+                <p>520.00</p>
+            </div>
+			
+			<div class="dress-item">
+                <img src="im14.jpg" alt="Mocha Satin Skirt">
+                <h3>Mocha Satin Skirt</h3>
+                <p>560.00</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUTERWEAR CATEGORY -->
+    <div class="category-section">
+        <h3 class="category-title">OUTERWEAR</h3>
+
+        <div class="dress-grid">
+            <div class="dress-item">
+                <img src="im4.jpg" alt="Chic Outerwear">
+                <h3>Chic Outerwear</h3>
+                <p>650.00</p>
+            </div>
+
+            <div class="dress-item">
+                <img src="im8.jpg" alt="Elegant Outerwear">
+                <h3>Elegant Outerwear</h3>
+                <p>700.00</p>
+            </div>
+			
+			 <div class="dress-item">
+                <img src="im15.jpg" alt="Classic Cream Blazer">
+                <h3>Classic Cream Blazer</h3>
+                <p>950.00</p>
+            </div>
+			
+			 <div class="dress-item">
+                <img src="im16.jpg" alt="Camel Knit Cardigan">
+                <h3>Camel Knit Cardigan</h3>
+                <p>780.00</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+	<footer>
+        <p>&copy; 2026 SANI&#201 ATELIER. All Rights Reserved.</p>
+        <p>Elegance, Tailored with Grace.</p>
+    </footer>
+
+</body>
+</html>
