@@ -188,46 +188,63 @@
 
         <p class="subtitle">Please login to your account</p>
 
-        <form action="home.html" method="get">
+        
+<form id="loginForm">
 
-            <!-- USERNAME -->
-            <div class="input-box">
-                <label for="username">Username</label>
-                <input
-                    type="sania"
-                    id="username"
-                    name="username"
-                    placeholder="Enter your username"
-                    required>
-            </div>
+    <div class="input-box">
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your username"
+            required>
+    </div>
 
-            <!-- PASSWORD -->
-            <div class="input-box">
-    <label for="password">Password</label>
-    <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Enter your password"
-        value="12345"
-        required>
-</div>
+    <div class="input-box">
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required>
+    </div>
 
-            <div class="forgot">
-                <a href="#">Forgot Password?</a>
-            </div>
+    <p id="errorMessage" style="color: #b00020; text-align: center; margin-bottom: 15px; display: none;">
+        Incorrect username or password. Please try again.
+    </p>
 
-            <!-- LOGIN BUTTON -->
-            <button type="submit" class="login-btn">
-                LOG IN
-            </button>
+    <div class="forgot">
+        <a href="#">Forgot Password?</a>
+    </div>
 
-            <div class="signup">
-                Don't have an account?
-                <a href="#">Sign Up</a>
-            </div>
+    <button type="submit" class="login-btn">
+        LOG IN
+    </button>
 
-        </form>
+    <div class="signup">
+        Don't have an account?
+        <a href="#">Sign Up</a>
+    </div>
+
+</form>
+
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const errorMessage = document.getElementById("errorMessage");
+
+        if (username === "sania" && password === "12345") {
+            window.location.href = "home.html";
+        } else {
+            errorMessage.style.display = "block";
+        }
+    });
+</script>
 
     </div>
 
