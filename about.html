@@ -189,6 +189,63 @@ footer p + p {
         gap: 30px;
     }
 }
+        /* MOBILE RESPONSIVE FIX */
+@media screen and (max-width: 768px) {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .container,
+    .about-container,
+    .content-container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 20px 14px;
+    }
+
+    .cards-container,
+    .card-container,
+    .about-grid,
+    .cards-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 22px 18px;
+        box-sizing: border-box;
+    }
+
+    p {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        text-align: left;
+        line-height: 1.7;
+    }
+
+    h1, h2, h3 {
+        overflow-wrap: break-word;
+        text-align: center;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
     </style>
 </head>
